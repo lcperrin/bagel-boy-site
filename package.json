@@ -1,0 +1,13 @@
+{
+  "name": "big-boy-bagel",
+  "private": true,
+  "version": "0.2.0",
+  "description": "Big Boy Bagel - multipage Eleventy site with Decap CMS + structured Menu collection",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
