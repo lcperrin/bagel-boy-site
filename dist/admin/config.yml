@@ -6,7 +6,7 @@ media_folder: "src/assets/uploads"
 public_folder: "/assets/uploads"
 
 site_url: "/"
-logo_url: "/assets/placeholder-square.svg"
+logo_url: "/assets/uploads/9945AA50-52CA-4B4E-93C5-4F553D5616B8.png"
 
 collections:
   - name: "pages"
