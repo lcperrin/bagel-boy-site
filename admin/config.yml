@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: cperrin/bagel-boy-site
+  repo: lcperrin/bagel-boy-site
   branch: main
 
 media_folder: "src/assets/uploads"
