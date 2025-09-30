@@ -1,4 +1,4 @@
-# Big Boy Bagel — Eleventy + Decap CMS (Structured Menu)
+# Big Boy Bread — Eleventy + Decap CMS (Structured Menu)
 
 A multi-page static site with a collage-forward NYC vibe, powered by **Eleventy (11ty)** and **Decap (Netlify) CMS**.
 Non-engineers can edit pages, images, and **Menu Items** in a friendly UI at `/admin/`.

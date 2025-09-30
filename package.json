@@ -1,8 +1,8 @@
 {
-  "name": "big-boy-bagel",
+  "name": "big-boy-bread",
   "private": true,
   "version": "0.2.0",
-  "description": "Big Boy Bagel - multipage Eleventy site with Decap CMS + structured Menu collection",
+  "description": "Big Boy Bread - multipage Eleventy site with Decap CMS + structured Menu collection",
   "scripts": {
     "dev": "eleventy --serve",
     "build": "eleventy"
