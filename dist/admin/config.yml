@@ -1,12 +1,14 @@
+---
 backend:
-  name: git-gateway
+  name: github
+  repo: lcperrin/bagel-boy-site
   branch: main
 
 media_folder: "src/assets/uploads"
 public_folder: "/assets/uploads"
 
 site_url: "/"
-logo_url: "/assets/uploads/2CA-4B4E-93C5-4F553D5616B8_512x512.png"
+logo_url: "/assets/uploads/b_boy_logo100x100.png"
 
 collections:
   - name: "pages"
