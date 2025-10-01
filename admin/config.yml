@@ -1,7 +1,7 @@
+---
 backend:
-  name: cloudflare
-  account_id: 7fd55eb2d9c36e3320b4e19512e978a7
-  project_name: BigBoyBread
+  name: github
+  repo: lcperrin/bagel-boy-site
   branch: main
 
 media_folder: "src/assets/uploads"
