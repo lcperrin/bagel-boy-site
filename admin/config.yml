@@ -1,12 +1,14 @@
 backend:
-  name: git-gateway
+  name: cloudflare
+  account_id: 7fd55eb2d9c36e3320b4e19512e978a7
+  project_name: BigBoyBread
   branch: main
 
 media_folder: "src/assets/uploads"
 public_folder: "/assets/uploads"
 
 site_url: "/"
-logo_url: "/assets/uploads/2CA-4B4E-93C5-4F553D5616B8_512x512_100x100.png"
+logo_url: "/assets/uploads/b_boy_logo100x100.png"
 
 collections:
   - name: "pages"
