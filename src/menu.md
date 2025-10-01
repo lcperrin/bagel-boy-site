@@ -4,7 +4,7 @@ title: Menu
 description: A short, obsessive menu.
 ---
 
-<p class="lede">Everything here is editable in the CMS under <strong>Menu Items</strong>. Add, remove, and reorder without touching code.</p>
+<p class="lede">Everything here is editable. Add, remove, and reorder without touching code.</p>
 
 <div class="cards">
 {% for item in collections.menuItems | byOrder %}
