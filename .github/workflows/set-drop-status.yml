@@ -22,4 +22,4 @@ jobs:
           git config --global user.email 'github-actions@github.com'
           git add drop-config.json
           git commit -m "Set drop status to ${{ github.event.inputs.drop_status }} via workflow" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref }}
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:${{ github.ref }}
