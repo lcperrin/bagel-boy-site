@@ -16,7 +16,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Set drop status in drop-config.json
         run: |
-          jq '.activeOption = "${{ github.event.inputs.drop_status }}"' drop-config.json > tmp.json && mv tmp.json drop-config.json
+          jq '.activeOption = "${{ github.event.inputs.drop_status }}"' drop-config.json > tmp.json
+          mv tmp.json drop-config.json
       - name: Commit and push
         run: |
           git config --global user.name 'github-actions'
