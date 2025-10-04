@@ -1,0 +1,26 @@
+jobs:
+---
+name: Set Drop Status
+on:
+  workflow_dispatch:
+    inputs:
+      drop_status:
+        description: 'Set drop status (yes, no, now)'
+        required: true
+        default: 'no'
+jobs:
+  set-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Set drop status in drop-config.json
+        run: |
+          jq '.activeOption = "${{ github.event.inputs.drop_status }}"' drop-config.json > tmp.json && mv tmp.json drop-config.json
+      - name: Commit and push
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add drop-config.json
+          git commit -m "Set drop status to ${{ github.event.inputs.drop_status }} via workflow" || echo "No changes to commit"
+          git push

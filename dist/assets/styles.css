@@ -25,6 +25,10 @@ h3{font-size:clamp(1.2rem,2.5vw,1.4rem);margin:0 0 .25rem}
 .tagline{margin:.5rem 0 1.25rem;color:var(--cream);max-width:35ch}
 .btn{display:inline-block;text-decoration:none;font-weight:800;padding:.7rem 1rem;border-radius:4px;box-shadow:0 3px 0 #000,0 8px 18px var(--shadow);transform:rotate(-.8deg)}
 .btn-primary{background:var(--teal);color:#041414}
+.btn.btn-primary#dropBtn {
+		font-size: 1.125em;
+		padding: 1.125em 1.6875em;
+}
 .hero-stickerwall{height:360px;position:relative}
 .sticker{position:absolute;width:120px;height:120px;background:var(--paper);color:#111;border:2px solid #000;box-shadow:0 6px 0 #000,0 12px 24px var(--shadow);display:flex;align-items:center;justify-content:center;font-weight:900}
 .s1{top:10%;left:8%;transform:rotate(-8deg)}
