@@ -6,7 +6,11 @@ const HEADERS = [
 ];
 
 export default async (req) => {
+  console.log("submit-order function invoked");
+  console.log("Request method:", req.httpMethod);
+  console.log("Request body:", req.body);
   if (req.httpMethod !== "POST") {
+    console.log("Method not allowed");
     return { statusCode: 405, body: "Method Not Allowed" };
   }
   try {
@@ -16,10 +20,24 @@ export default async (req) => {
     const product = String(body.product || "").trim();
     const qty = Number(body.qty);
 
-    if (!name) return bad("Name is required");
-    if (!phone) return bad("Phone is required");
-    if (!product) return bad("Product is required");
-    if (!(qty >= 1)) return bad("Quantity must be ≥ 1");
+    console.log("Parsed body:", { name, phone, product, qty });
+
+    if (!name) {
+      console.log("Validation failed: Name is required");
+      return bad("Name is required");
+    }
+    if (!phone) {
+      console.log("Validation failed: Phone is required");
+      return bad("Phone is required");
+    }
+    if (!product) {
+      console.log("Validation failed: Product is required");
+      return bad("Product is required");
+    }
+    if (!(qty >= 1)) {
+      console.log("Validation failed: Quantity must be ≥ 1");
+      return bad("Quantity must be ≥ 1");
+    }
 
     const auth = getAuth();
     const sheets = getSheetsClient(auth);
@@ -29,14 +47,18 @@ export default async (req) => {
     const unit = unitPrice();
     const total = unit * qty;
 
+    console.log("Appending order row:", { nowISO, name, phone, product, qty, unit, total });
+
     // 1) Ensure Orders tab exists with headers
     await ensureOrdersTab(sheets, spreadsheetId);
 
     // 2) Compute next Order # (max in Orders!H:H) — simple & safe for small/med scale
     const nextOrder = await nextOrderNumber(sheets, spreadsheetId);
+    console.log("Next order number:", nextOrder);
 
     // 3) Compute product increment = COUNTIF(Orders!D:D, product) + 1
     const productInc = await nextProductIncrement(sheets, spreadsheetId, product);
+    console.log("Product increment:", productInc);
 
     // 4) Append to Orders
     const row = [
@@ -60,6 +82,7 @@ export default async (req) => {
     });
 
     // 6) Respond with recap JSON
+    console.log("Order successfully appended");
     return json({
       ok: true,
       orderNo: nextOrder,
@@ -68,20 +91,24 @@ export default async (req) => {
       timestamp: nowISO
     });
   } catch (e) {
+    console.error("Error in submit-order function:", e);
     return json({ ok: false, error: String(e && e.message ? e.message : e) }, 500);
   }
 };
 
 /* ---------- helpers ---------- */
 function json(data, statusCode = 200) {
-  return {
+  const response = {
     statusCode,
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data)
   };
+  console.log("Returning response:", response);
+  return response;
 }
 
 function bad(msg) { return json({ ok: false, error: msg }, 400); }
+// Logging is now added to json() so all returns are logged
 
 async function ensureOrdersTab(sheets, spreadsheetId) {
   const meta = await sheets.spreadsheets.get({ spreadsheetId });
