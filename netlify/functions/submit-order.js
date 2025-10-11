@@ -1,3 +1,4 @@
+
 import { getAuth, getSheetsClient, unitPrice, monthSheetName } from "./utils/sheets.js";
 
 const ORDERS_TAB = "Orders";
@@ -5,16 +6,16 @@ const HEADERS = [
   "Date","Customer Name","Phone","Product","Quantity","Unit Price","Total","Order #","Product Increment"
 ];
 
-export default async (req) => {
+export default async (request) => {
   console.log("submit-order function invoked");
-  console.log("Request method:", req.httpMethod);
-  console.log("Request body:", req.body);
-  if (req.httpMethod !== "POST") {
-    console.log("Method not allowed");
-    return { statusCode: 405, body: "Method Not Allowed" };
-  }
+  console.log("Request method:", request.method);
+  let body = {};
   try {
-    const body = JSON.parse(req.body || "{}");
+    if (request.method !== "POST") {
+      console.log("Method not allowed");
+      return new Response("Method Not Allowed", { status: 405 });
+    }
+    body = await request.json();
     const name = String(body.name || "").trim();
     const phone = String(body.phone || "").trim();
     const product = String(body.product || "").trim();
@@ -24,19 +25,19 @@ export default async (req) => {
 
     if (!name) {
       console.log("Validation failed: Name is required");
-      return bad("Name is required");
+      return jsonResponse({ ok: false, error: "Name is required" }, 400);
     }
     if (!phone) {
       console.log("Validation failed: Phone is required");
-      return bad("Phone is required");
+      return jsonResponse({ ok: false, error: "Phone is required" }, 400);
     }
     if (!product) {
       console.log("Validation failed: Product is required");
-      return bad("Product is required");
+      return jsonResponse({ ok: false, error: "Product is required" }, 400);
     }
     if (!(qty >= 1)) {
       console.log("Validation failed: Quantity must be ≥ 1");
-      return bad("Quantity must be ≥ 1");
+      return jsonResponse({ ok: false, error: "Quantity must be ≥ 1" }, 400);
     }
 
     const auth = getAuth();
@@ -83,7 +84,7 @@ export default async (req) => {
 
     // 6) Respond with recap JSON
     console.log("Order successfully appended");
-    return json({
+    return jsonResponse({
       ok: true,
       orderNo: nextOrder,
       item: { product, qty, unit, total },
@@ -92,23 +93,18 @@ export default async (req) => {
     });
   } catch (e) {
     console.error("Error in submit-order function:", e);
-    return json({ ok: false, error: String(e && e.message ? e.message : e) }, 500);
+    return jsonResponse({ ok: false, error: String(e && e.message ? e.message : e) }, 500);
   }
-};
-
-/* ---------- helpers ---------- */
-function json(data, statusCode = 200) {
-  const response = {
-    statusCode,
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  };
-  console.log("Returning response:", response);
-  return response;
 }
 
-function bad(msg) { return json({ ok: false, error: msg }, 400); }
-// Logging is now added to json() so all returns are logged
+function jsonResponse(data, status = 200) {
+  const body = JSON.stringify(data);
+  console.log("Returning response:", body);
+  return new Response(body, {
+    status,
+    headers: { "Content-Type": "application/json" }
+  });
+}
 
 async function ensureOrdersTab(sheets, spreadsheetId) {
   const meta = await sheets.spreadsheets.get({ spreadsheetId });
@@ -176,4 +172,5 @@ async function nextProductIncrement(sheets, spreadsheetId, product) {
   let count = 0;
   for (const [p] of rows) if (String(p).trim() === product) count++;
   return count + 1;
+}
 }
