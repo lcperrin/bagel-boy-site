@@ -1,7 +1,7 @@
 
 [build]
   command = "npm run build"
-  publish = "public"
+  publish = "dist"
   functions = "netlify/functions"
 
 [functions]

@@ -5,7 +5,7 @@
   "description": "Big Boy Bread - multipage Eleventy site with Decap CMS + structured Menu collection",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy && cp public/form.html dist/form.html"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"
