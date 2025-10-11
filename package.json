@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.2.0",
   "description": "Big Boy Bread - multipage Eleventy site with Decap CMS + structured Menu collection",
+  "type": "module",
   "scripts": {
     "dev": "eleventy --serve",
     "build": "eleventy && cp public/form.html dist/form/index.html"
