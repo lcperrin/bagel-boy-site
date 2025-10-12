@@ -1,0 +1,80 @@
+---
+backend:
+  name: github
+  repo: lcperrin/bagel-boy-site
+  branch: main
+
+media_folder: "src/assets/uploads"
+public_folder: "/assets/uploads"
+
+site_url: "/"
+logo_url: "/assets/uploads/b_boy_logo100x100.png"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home"
+        name: "home"
+        file: "src/index.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "string", required: false}
+          - {label: "Hero Enabled", name: "hero", widget: "boolean", default: true}
+          - {label: "Tagline", name: "tagline", widget: "string", required: false}
+          - {label: "Hero CTA Text", name: "hero_cta_text", widget: "string", required: false}
+          - {label: "Hero CTA URL", name: "hero_cta_url", widget: "string", required: false}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "About"
+        name: "about"
+        file: "src/about.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "string", required: false}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Menu Page"
+        name: "menu"
+        file: "src/menu.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "string", required: false}
+          - {label: "Body", name: "body", widget: "markdown", required: false}
+      - label: "Catering"
+        name: "catering"
+        file: "src/catering.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "string", required: false}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Press"
+        name: "press"
+        file: "src/press.md"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "string", required: false}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "menuitems"
+    label: "Menu Items"
+    folder: "src/menu-items"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Price", name: "price", widget: "string", hint: "Examples: $, $$, or 7.50"}
+      - {label: "Tags", name: "tags", widget: "list", required: false, hint: "e.g., vegan, spicy, special"}
+      - {label: "Order", name: "order", widget: "number", hint: "Lower shows first", default: 100}
+      - {label: "Image", name: "image", widget: "image", required: false}
+      - {label: "Alt Text", name: "alt", widget: "string", required: false}
+      - {label: "Description", name: "description", widget: "text", required: false}
+
+  - name: "gallery"
+    label: "Gallery"
+    folder: "src/gallery"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Alt Text", name: "alt", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown", required: false}

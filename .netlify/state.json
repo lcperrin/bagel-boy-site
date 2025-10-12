@@ -1,0 +1,20 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Walnut Hill",
+			"country": {
+				"code": "US",
+				"name": "United States"
+			},
+			"subdivision": {
+				"code": "ME",
+				"name": "Maine"
+			},
+			"timezone": "America/New_York",
+			"latitude": 43.838,
+			"longitude": -70.1945,
+			"postalCode": "04097"
+		},
+		"timestamp": 1760284028809
+	}
+}
