@@ -4,10 +4,9 @@ title: Press
 description: Mentions, features, and the rumor mill.
 ---
 
-- *Outlet Name* — “Short pull-quote about the crunch and chew.” (YYYY-MM-DD)  
-- *Another Outlet* — “Quote goes here.” (YYYY-MM-DD)
+- *Bagels Quarterly* — “Best bagels ever. Ever."
+- *Sue Drinkwater* — “It's so good when it hits your lips"
 
-Upload logos or clippings to `/assets/uploads` and reference them here. Keep it tidy.
 
 <div style="display: flex; gap: 1.5em; align-items: center; margin-top: 2em;">
 	<a href="https://www.facebook.com/profile.php?id=61581504103578" target="_blank" rel="noopener">
