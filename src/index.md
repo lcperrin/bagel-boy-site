@@ -16,7 +16,7 @@ Born from a love of art, food, and the kind of fun that used to define this city
 
 No shortcuts. No silent kitchens. Just real ingredients, local when we can get them, and a whole lot of care.
 
-Our breads might not be gluten-free, but they’re soul-free — in the best way possible.
+Our breads might not be gluten-free, but they’re yuk-free — in the best way possible.
 Crusty outsides, soft insides, and enough personality to make your toaster blush.
 
 Come grab a loaf. Stay for the smell.
