@@ -7,6 +7,19 @@ hero_cta_url: /menu/
 hero_cta_text: "Order of Operations: Menu"
 ---
 
+
+
+
+<div style="display: flex; gap: 2rem; align-items: flex-start;">
+  <div style="flex: 0 0 35%;">
+
+    <a href="https://www.google.com/maps/search/Beals+Old+Port+Portland+Maine" target="_blank" rel="noopener noreferrer">
+      <img src="/assets/uploads/popup_infographic.png" alt="Pop-Up this Saturday!" style="width: 100%; height: auto; display: block; border: 3px solid #000; box-shadow: 0 6px 12px rgba(0,0,0,0.15); transform: rotate(-2deg);">
+    </a>
+
+  </div>
+  <div>
+
 ## Big Boy Bread
 
 ### Neighborhood roots. Early mornings. Loud music. Bread done right.
@@ -21,3 +34,7 @@ Crusty outsides, soft insides, and enough personality to make your toaster blush
 
 Come grab a loaf. Stay for the smell.
 We’re here early, music up, ovens hot, doing bread the right way — the Big Boy way.
+
+  </div>
+</div>
+
