@@ -14,7 +14,7 @@ hero_cta_text: "Order of Operations: Menu"
   <div style="flex: 0 0 35%;">
 
     <a href="https://www.google.com/maps/search/Beals+Old+Port+Portland+Maine" target="_blank" rel="noopener noreferrer">
-      <img src="/assets/uploads/no_popup_weekend.png" alt="No pop-up this weekend, we'll see you next weekend" style="width: 100%; height: auto; display: block; border: 3px solid #000; box-shadow: 0 6px 12px rgba(0,0,0,0.15); transform: rotate(-2deg);">
+      <img src="/assets/uploads/beals_takeover_winter.png" alt="Come get your bagels, come get your bread! Taking over Beals in the Old Port this winter. Every Saturday 10-12" style="width: 100%; height: auto; display: block; border: 3px solid #000; box-shadow: 0 6px 12px rgba(0,0,0,0.15); transform: rotate(-2deg);">
     </a>
 
   </div>
