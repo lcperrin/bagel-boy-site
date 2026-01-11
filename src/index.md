@@ -5,6 +5,9 @@ hero: true
 tagline: Tasty. Fresh. Portland attitude.
 hero_cta_url: /menu/
 hero_cta_text: "Order of Operations: Menu"
+seo_title: Big Boy Bread — Handmade loaves & pop-ups
+image: /assets/uploads/beals_takeover_winter.png
+description: Fresh-baked loaves, seasonal pop-ups, and handcrafted bagels in Portland, ME.
 ---
 
 

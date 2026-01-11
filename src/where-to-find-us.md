@@ -2,6 +2,8 @@
 layout: layouts/base.njk
 title: Where To Find Us
 description: Locations, hours, and a handy infographic to get you here.
+seo_title: Where To Find Us — Find our pop-ups & events
+image: /assets/uploads/popup_infographic.png
 ---
 
 <p class="lede">Come find us!</p>

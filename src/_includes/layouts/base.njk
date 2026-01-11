@@ -3,11 +3,51 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ title }} — Big Boy Bread</title>
-  <meta name="description" content="{{ description or 'Big Boy Bread — a tasty, vibrant bread joint with Portland soul.' }}">
+  {# Derived values: prefer seo_title, then title; prefer description; build absolute URL from site.url if available #}
+  {% set seo_title = seo_title or title %}
+  {% set seo_description = description or "Big Boy Bread — a tasty, vibrant bread joint with Portland soul." %}
+  {% set site_url = (site and site.url) or (collections and collections.site and collections.site.url) or "" %}
+
+  <title>{{ seo_title }} — Big Boy Bread</title>
+  <meta name="description" content="{{ seo_description }}">
+  <link rel="canonical" href="{% if site_url %}{{ site_url }}{{ url }}{% else %}{{ url }}{% endif %}">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Big Boy Bread">
+  <meta property="og:title" content="{{ seo_title }}">
+  <meta property="og:description" content="{{ seo_description }}">
+  {% if page.image or image %}
+    {% set og_image = page.image or image %}
+    {% set og_image_str = og_image|string %}
+    {% if og_image_str.indexOf('http') == 0 %}
+      <meta property="og:image" content="{{ og_image_str }}">
+    {% else %}
+      <meta property="og:image" content="{% if site_url %}{{ site_url }}{{ og_image_str }}{% else %}{{ og_image_str }}{% endif %}">
+    {% endif %}
+  {% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ seo_title }}">
+  <meta name="twitter:description" content="{{ seo_description }}">
   <meta name="color-scheme" content="light dark">
   <link rel="stylesheet" href="/assets/styles.css">
   <link rel="icon" type="image/png" href="/assets/uploads/b_boy_logo100x100.png">
+  {# JSON-LD LocalBusiness structured data. Fill telephone/address in `src/_data/site.json`. #}
+  <script type="application/ld+json">
+  {{ {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": site.name or "Big Boy Bread",
+    "url": site.url,
+    "telephone": site.telephone or "",
+    "image": (site.url + (page.image or site.image)) if (site.url and (page.image or site.image)) else (page.image or site.image or ""),
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": site.address.streetAddress or "",
+      "addressLocality": site.address.addressLocality or "",
+      "addressRegion": site.address.addressRegion or "",
+      "postalCode": site.address.postalCode or ""
+    }
+  } | dump(2) }}
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>

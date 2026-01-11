@@ -1,0 +1,16 @@
+---
+layout: null
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+{%- set pages = collections.all | reverse -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {%- for p in pages -%}
+    {%- if p.url and not p.data.eleventyExcludeFromCollections -%}
+  <url>
+    <loc>{{ site.url }}{{ p.url }}</loc>
+  </url>
+    {%- endif -%}
+  {%- endfor -%}
+</urlset>

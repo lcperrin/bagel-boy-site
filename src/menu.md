@@ -2,6 +2,7 @@
 layout: layouts/base.njk
 title: Menu
 description: A short, obsessive menu.
+image: /assets/uploads/menu_preview.png
 ---
 
 <p class="lede">Everything here is editable. Add, remove, and reorder without touching code.</p>

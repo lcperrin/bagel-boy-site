@@ -2,6 +2,8 @@
 layout: layouts/base.njk
 title: About
 description: The story and the stance.
+seo_title: About Big Boy Bread — Our Story
+image: /assets/uploads/subject.png
 ---
 
 <div style="display:flex;align-items:center;gap:2rem;">
