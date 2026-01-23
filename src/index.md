@@ -6,7 +6,7 @@ tagline: Tasty. Fresh. Portland attitude.
 hero_cta_url: /menu/
 hero_cta_text: "Order of Operations: Menu"
 seo_title: Big Boy Bread — Handmade loaves & pop-ups
-image: /assets/uploads/beals_takeover_winter.png
+image: /assets/uploads/twoPopups.png
 description: Fresh-baked loaves, seasonal pop-ups, and handcrafted bagels in Portland, ME.
 ---
 
@@ -16,14 +16,14 @@ description: Fresh-baked loaves, seasonal pop-ups, and handcrafted bagels in Por
 <div style="display: flex; gap: 2rem; align-items: flex-start;">
   <div style="flex: 0 0 35%;">
 
-    <a href="https://www.google.com/maps/search/Beals+Old+Port+Portland+Maine" target="_blank" rel="noopener noreferrer">
-      <img src="/assets/uploads/beals_takeover_winter.png" alt="Come get your bagels, come get your bread! Taking over Beals in the Old Port this winter. Every Saturday 10-12" style="width: 100%; height: auto; display: block; border: 3px solid #000; box-shadow: 0 6px 12px rgba(0,0,0,0.15); transform: rotate(-2deg);">
+    <a href="/where-to-find-us/">
+      <img src="/assets/uploads/twoPopups.png" alt="Come get your bagels, come get your bread! Every Saturday and Sunday 10-1" style="width: 100%; height: auto; display: block; border: 3px solid #000; box-shadow: 0 6px 12px rgba(0,0,0,0.15); transform: rotate(-2deg);">
     </a>
 
   </div>
   <div>
 
-<p style="margin-top:0.5rem;"><a href="/where-to-find-us/" class="btn">Where To Find Us</a></p>
+
 
 ## Big Boy Bread
 

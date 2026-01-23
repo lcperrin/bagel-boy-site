@@ -87,3 +87,27 @@
     });
   }
 })();
+
+// Map links: move page-specific map-link behavior here so it's available globally
+(function(){
+  function initMapLinks(){
+    var links = document.querySelectorAll('.map-link');
+    var iframe = document.getElementById('mapFrame');
+    if(!links || links.length === 0 || !iframe) return;
+    links.forEach(function(link){
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        var q = this.getAttribute('data-q') || this.textContent;
+        iframe.src = 'https://www.google.com/maps?q=' + encodeURIComponent(q) + '&output=embed';
+        links.forEach(function(l){ l.style.fontWeight = ''; });
+        this.style.fontWeight = '700';
+      });
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initMapLinks);
+  } else {
+    initMapLinks();
+  }
+})();
