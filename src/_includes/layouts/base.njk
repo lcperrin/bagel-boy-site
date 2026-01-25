@@ -67,34 +67,78 @@
         </div>
       </nav>
     </div>
-    {% if hero %}
-    <div class="hero" role="img" aria-label="Collage-inspired hero banner">
-      <div class="hero-copy">
-        <h1 class="logo" aria-label="Big Boy Bread">
-          <span class="logo-line">BIG BOY</span>
-          <span class="logo-line accent">BREAD</span>
-        </h1>
-        {% if tagline %}
-          <p class="tagline">{{ tagline }}</p>
-        {% endif %}
-        <div id="drop-cta" class="drop-cta">
-         <button id="dropBtn" class="btn btn-primary" style="display:none;">Is the drop on?</button>
-          <div id="dropStatus" class="drop-status"></div>
-          <div id="memeDisplay" class="meme-display"></div>
+    {% if (page.url == "/" or page.url == "" or page.url == "/index.html") and hero %}
+      <div class="home-header wrap">
+        <div class="home-header-inner">
+          <div class="hero-brand">
+            <h1 class="logo" aria-label="Big Boy Bread">
+              <span class="logo-line">BIG BOY</span>
+              <span class="logo-line accent">BREAD</span>
+            </h1>
+            {% if tagline %}
+              <p class="tagline">{{ tagline }}</p>
+            {% endif %}
+          </div>
+          <div class="hero-infographic">
+            <div id="drop-cta" class="drop-cta">
+             <button id="dropBtn" class="btn btn-primary" style="display:none;">Is the drop on?</button>
+              <div id="dropStatus" class="drop-status"></div>
+              <div id="memeDisplay" class="meme-display"></div>
+            </div>
+            {# Render the page image (from frontmatter `image`) as the infographic above the bar to the right #}
+            {% if page.image or image %}
+              <div class="hero-image">
+                <a href="/where-to-find-us/">
+                  <img src="{{ (page.image or image) }}" alt="{{ page.title or site.name }}" />
+                </a>
+              </div>
+            {% else %}
+              <div class="infographic-placeholder" aria-hidden="true">Infographic</div>
+            {% endif %}
+          </div>
         </div>
       </div>
-      <div class="hero-stickerwall" aria-hidden="true">
-        <div class="sticker s1"><img src="/assets/uploads/image_512x683_100x133.png" alt="Sticker 1"></div>
-        <div class="sticker s2"><img src="/assets/uploads/IMG_0137_512x683_100x133.jpeg" alt="Sticker 2"></div>
-        <div class="sticker s3"><img src="/assets/uploads/IMG_3034_100x133.jpg" alt="Sticker 3"></div>
-        <div class="sticker s4"><img src="/assets/uploads/IMG_3033_100x133.jpg" alt="Sticker 4"></div>
-        <div class="sticker s5"><img src="/assets/uploads/IMG_3030_100x133.jpg" alt="Sticker 5"></div>
+    {% elif hero %}
+      <div class="hero" role="img" aria-label="Collage-inspired hero banner">
+        <div class="hero-copy">
+          <h1 class="logo" aria-label="Big Boy Bread">
+            <span class="logo-line">BIG BOY</span>
+            <span class="logo-line accent">BREAD</span>
+          </h1>
+          {% if tagline %}
+            <p class="tagline">{{ tagline }}</p>
+          {% endif %}
+          <div id="drop-cta" class="drop-cta">
+           <button id="dropBtn" class="btn btn-primary" style="display:none;">Is the drop on?</button>
+            <div id="dropStatus" class="drop-status"></div>
+            <div id="memeDisplay" class="meme-display"></div>
+          </div>
+        </div>
+        <div class="hero-stickerwall" aria-hidden="true">
+          <div class="sticker s1"><img src="/assets/uploads/image_512x683_100x133.png" alt="Sticker 1"></div>
+          <div class="sticker s2"><img src="/assets/uploads/IMG_0137_512x683_100x133.jpeg" alt="Sticker 2"></div>
+          <div class="sticker s3"><img src="/assets/uploads/IMG_3034_100x133.jpg" alt="Sticker 3"></div>
+          <div class="sticker s4"><img src="/assets/uploads/IMG_3033_100x133.jpg" alt="Sticker 4"></div>
+          <div class="sticker s5"><img src="/assets/uploads/IMG_3030_100x133.jpg" alt="Sticker 5"></div>
+        </div>
       </div>
-    </div>
     {% endif %}
   </header>
   <main id="main" class="section">
-    <div class="wrap">{{ content | safe }}</div>
+    {% if (page.url == "/" or page.url == "" or page.url == "/index.html") and hero %}
+      <div class="home-main wrap">
+        <div class="hero-stickerwall home-stickerwall" aria-hidden="true">
+          <div class="sticker s1"><img src="/assets/uploads/image_512x683_100x133.png" alt="Sticker 1"></div>
+          <div class="sticker s2"><img src="/assets/uploads/IMG_0137_512x683_100x133.jpeg" alt="Sticker 2"></div>
+          <div class="sticker s3"><img src="/assets/uploads/IMG_3034_100x133.jpg" alt="Sticker 3"></div>
+          <div class="sticker s4"><img src="/assets/uploads/IMG_3033_100x133.jpg" alt="Sticker 4"></div>
+          <div class="sticker s5"><img src="/assets/uploads/IMG_3030_100x133.jpg" alt="Sticker 5"></div>
+        </div>
+        <div class="page-content">{{ content | safe }}</div>
+      </div>
+    {% else %}
+      <div class="wrap">{{ content | safe }}</div>
+    {% endif %}
   </main>
   <footer class="site-footer" role="contentinfo">
     <div class="wrap">

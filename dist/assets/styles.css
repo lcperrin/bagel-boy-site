@@ -1,6 +1,6 @@
 /* Collage-forward multi-page site (with menu collection) */
 :root { --bg:#0f0f0f; --ink:#f5f5f5; --cream:#f4efe6; --mustard:#f5c518; --pink:#ff2d95; --teal:#00b7a8; --shadow:rgba(0,0,0,.5); --paper:#fff7e1; --maxw:1100px; --gap:clamp(.75rem,1.5vw,1.25rem); }
-*{box-sizing:border-box} html,body{height:100%} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--ink);background:radial-gradient(1200px 600px at 10% -10%,#1a1a1a,transparent 60%),radial-gradient(800px 400px at 90% -20%,#1b1b1b,transparent 40%),#111;line-height:1.55}
+*{box-sizing:border-box} html,body{height:100%} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--ink);background-image:radial-gradient(1200px 600px at 10% -10%,#1a1a1a,transparent 60%),radial-gradient(800px 400px at 90% -20%,#1b1b1b,transparent 40%),url('/assets/placeholder-collage.svg');background-position:10% -10%,90% -20%,center;background-size:1200px 600px,800px 400px,cover;background-repeat:no-repeat;line-height:1.55}
 .wrap{width:min(100% - 2rem, var(--maxw));margin-inline:auto}
 .section{padding:clamp(2rem,6vw,4rem) 0}
 h1,h2,h3{line-height:1.1;letter-spacing:.01em}
@@ -10,7 +10,7 @@ h3{font-size:clamp(1.2rem,2.5vw,1.4rem);margin:0 0 .25rem}
 .lede{color:#e1dfd7;max-width:60ch}
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{left:1rem;top:1rem;background:#000;color:#fff;padding:.5rem 1rem;border-radius:4px}
-.site-header{position:relative;background:linear-gradient(180deg,rgba(0,0,0,.7),rgba(0,0,0,0)),url('/assets/placeholder-collage.svg') center/cover no-repeat;border-bottom:6px solid var(--mustard)}
+.site-header{position:relative;background:linear-gradient(180deg,rgba(0,0,0,.7),rgba(0,0,0,0)),url('/assets/placeholder-collage.svg') center/cover no-repeat;border-bottom:0}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:var(--gap);padding:.75rem 0;position:relative}
 .brand{color:var(--ink);text-decoration:none;font-weight:1000;background:var(--pink);padding:.4rem .6rem;box-shadow:0 3px 0 #000}
 .site-nav{display:flex;gap:clamp(.5rem,2vw,1rem);align-items:center;flex-wrap:wrap}
@@ -30,6 +30,25 @@ h3{font-size:clamp(1.2rem,2.5vw,1.4rem);margin:0 0 .25rem}
 		padding: 1.125em 1.6875em;
 }
 .hero-stickerwall{height:360px;position:relative}
+.home-header{padding:clamp(.5rem,1.5vw,1rem) 0}
+.home-header-inner{display:flex;justify-content:space-between;align-items:center;gap:var(--gap)}
+.hero-brand{display:flex;flex-direction:column;justify-content:center;gap:.25rem;flex:1}
+.hero-infographic{display:flex;align-items:center;justify-content:flex-end;flex:0 0 260px;min-width:180px}
+@media (max-width:899px){
+	.home-header-inner{flex-direction:column;align-items:flex-start}
+	.hero-infographic{width:100%;justify-content:flex-start;margin-top:1rem;flex:unset;min-width:0}
+}
+.infographic-placeholder{background:var(--paper);color:#111;border:3px solid #000;border-radius:6px;padding:.5rem 1rem;box-shadow:0 6px 0 #000,0 12px 24px var(--shadow);min-height:64px;display:flex;align-items:center;justify-content:center;font-weight:900}
+.infographic-placeholder[hidden]{display:none}
+.hero-image img{width:125%;max-width:none;height:auto;display:block;border:3px solid #000;box-shadow:0 6px 0 #000,0 12px 24px var(--shadow);transform:rotate(-2deg)}
+.hero-image{margin-left:0;transform:translateX(-100%)}
+@media (max-width:899px){
+	.hero-image img{width:100%;max-width:320px}
+	.hero-image{margin-left:0;transform:none}
+}
+.home-main{display:grid;grid-template-columns:minmax(220px,40%) 1fr;gap:var(--gap);align-items:start;padding:clamp(1rem,2vw,1.5rem) 0}
+.home-stickerwall{height:420px;position:relative}
+.page-content{min-width:0}
 .sticker{position:absolute;width:120px;height:120px;background:var(--paper);color:#111;border:2px solid #000;box-shadow:0 6px 0 #000,0 12px 24px var(--shadow);display:flex;align-items:center;justify-content:center;font-weight:900}
 .s1{top:10%;left:8%;transform:rotate(-8deg)}
 .s2{top:25%;right:12%;transform:rotate(6deg)}
