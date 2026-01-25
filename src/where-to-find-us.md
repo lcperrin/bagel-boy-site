@@ -21,7 +21,7 @@ seo_title: Where To Find Us — Find our pop-ups & events
       <li>
         <strong><a href="#" class="map-link" data-q="501 Cottage Rd, South Portland, ME 04106" style="color:#0066cc;text-decoration:underline;">South Portland Pop-Up</a>:</strong>
         <ul>
-          <li>Sundays 10–1ish — At RattleShake, in South Portland.</li>
+          <li>Sundays 8-11 — At RattleShake, in South Portland.</li>
         </ul>
       </li>
       <li>
