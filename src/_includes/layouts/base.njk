@@ -55,12 +55,16 @@
     <div class="topbar wrap">
       <a href="/" class="brand">Big Boy Bread</a>
       <nav class="site-nav" aria-label="Primary">
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-          <a href="/where-to-find-us/">Where To Find Us</a>
-  <!-- Order link removed -->
-        <a href="/catering/">Catering</a>
-        <a href="/press/">Press</a>
+        <button id="menuToggle" class="hamburger" aria-expanded="false" aria-controls="siteMenu" aria-haspopup="true" aria-label="Open menu">
+          <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+        </button>
+        <div id="siteMenu" class="menu-dropdown" hidden role="menu" aria-label="Primary navigation">
+          <a href="/" role="menuitem">Home</a>
+          <a href="/about/" role="menuitem">About</a>
+          <a href="/where-to-find-us/" role="menuitem">Where To Find Us</a>
+          <a href="/catering/" role="menuitem">Catering</a>
+          <a href="/press/" role="menuitem">Press</a>
+        </div>
       </nav>
     </div>
     {% if hero %}
