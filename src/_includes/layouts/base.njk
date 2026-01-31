@@ -81,15 +81,6 @@
             {% endif %}
           </div>
           <div class="hero-infographic">
-            <div id="drop-cta" class="drop-cta">
-             {% if hero_cta_url %}
-               <a href="{{ hero_cta_url }}" class="btn btn-primary">{{ hero_cta_text or "Menu" }}</a>
-             {% else %}
-               <button id="dropBtn" class="btn btn-primary" style="display:none;">Is the drop on?</button>
-             {% endif %}
-              <div id="dropStatus" class="drop-status"></div>
-              <div id="memeDisplay" class="meme-display"></div>
-            </div>
             {# Render the page image (from frontmatter `image`) as the infographic above the bar to the right #}
             {% if page.image or image %}
               <div class="hero-image">
@@ -113,15 +104,6 @@
           {% if tagline %}
             <p class="tagline">{{ tagline }}</p>
           {% endif %}
-          <div id="drop-cta" class="drop-cta">
-            {% if hero_cta_url %}
-              <a href="{{ hero_cta_url }}" class="btn btn-primary">{{ hero_cta_text or "Menu" }}</a>
-            {% else %}
-              <button id="dropBtn" class="btn btn-primary" style="display:none;">Is the drop on?</button>
-            {% endif %}
-            <div id="dropStatus" class="drop-status"></div>
-            <div id="memeDisplay" class="meme-display"></div>
-          </div>
         </div>
         <div class="hero-stickerwall" aria-hidden="true">
           <div class="sticker s1"><img src="/assets/uploads/image_512x683_100x133.png" alt="Sticker 1"></div>
