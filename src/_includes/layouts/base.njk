@@ -53,13 +53,14 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" role="banner">
     <div class="topbar wrap">
-      <a href="/" class="brand">Big Boy Bread</a>
+      <a href="/menu/" class="brand">Bread Menu</a>
       <nav class="site-nav" aria-label="Primary">
         <button id="menuToggle" class="hamburger" aria-expanded="false" aria-controls="siteMenu" aria-haspopup="true" aria-label="Open menu">
           <span class="hamburger-box"><span class="hamburger-inner"></span></span>
         </button>
         <div id="siteMenu" class="menu-dropdown" hidden role="menu" aria-label="Primary navigation">
           <a href="/" role="menuitem">Home</a>
+          <a href="/menu/" role="menuitem">Bread Menu</a>
           <a href="/about/" role="menuitem">About</a>
           <a href="/where-to-find-us/" role="menuitem">Where To Find Us</a>
           <a href="/catering/" role="menuitem">Catering</a>
@@ -81,7 +82,11 @@
           </div>
           <div class="hero-infographic">
             <div id="drop-cta" class="drop-cta">
-             <button id="dropBtn" class="btn btn-primary" style="display:none;">Is the drop on?</button>
+             {% if hero_cta_url %}
+               <a href="{{ hero_cta_url }}" class="btn btn-primary">{{ hero_cta_text or "Menu" }}</a>
+             {% else %}
+               <button id="dropBtn" class="btn btn-primary" style="display:none;">Is the drop on?</button>
+             {% endif %}
               <div id="dropStatus" class="drop-status"></div>
               <div id="memeDisplay" class="meme-display"></div>
             </div>
@@ -109,7 +114,11 @@
             <p class="tagline">{{ tagline }}</p>
           {% endif %}
           <div id="drop-cta" class="drop-cta">
-           <button id="dropBtn" class="btn btn-primary" style="display:none;">Is the drop on?</button>
+            {% if hero_cta_url %}
+              <a href="{{ hero_cta_url }}" class="btn btn-primary">{{ hero_cta_text or "Menu" }}</a>
+            {% else %}
+              <button id="dropBtn" class="btn btn-primary" style="display:none;">Is the drop on?</button>
+            {% endif %}
             <div id="dropStatus" class="drop-status"></div>
             <div id="memeDisplay" class="meme-display"></div>
           </div>

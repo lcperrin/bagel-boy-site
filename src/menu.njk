@@ -1,0 +1,69 @@
+---
+layout: layouts/base.njk
+title: Menu
+description: Explore our menu categories.
+---
+
+<h1>Menu</h1>
+
+<div class="menu-categories">
+  {% for category, files in menuFiles %}
+    <div class="category-card">
+      <h2><a href="/menu/{{ category | slug }}/">{{ category | title }}</a></h2>
+      <p>{{ files | length }} items</p>
+    </div>
+  {% else %}
+    <p>No menu categories found. Please add folders to <code>src/assets/uploads/menu/</code>.</p>
+  {% endfor %}
+</div>
+
+<style>
+  h1 {
+    text-align: center;
+  }
+
+  .menu-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 2rem;
+  }
+  
+  .category-card {
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 8px;
+    background: #fafafa;
+    text-align: center;
+    transition: transform 0.2s;
+    flex: 1 1 250px;
+    max-width: 400px;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .category-card h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+  }
+  
+  .category-card a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .category-card a:hover {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  /* Center the fallback message if present */
+  .menu-categories > p {
+    text-align: center;
+    width: 100%;
+  }
+</style>

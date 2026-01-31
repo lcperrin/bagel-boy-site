@@ -9,22 +9,16 @@
   
 
   <title>Menu — Big Boy Bread</title>
-  <meta name="description" content="A short, obsessive menu.">
+  <meta name="description" content="Explore our menu categories.">
   <link rel="canonical" href="https://www.bigboybread.com">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="Big Boy Bread">
   <meta property="og:title" content="Menu">
-  <meta property="og:description" content="A short, obsessive menu.">
-  
-    
-    
-    
-      <meta property="og:image" content="https://www.bigboybread.com/assets/uploads/menu_preview.png">
-    
+  <meta property="og:description" content="Explore our menu categories.">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Menu">
-  <meta name="twitter:description" content="A short, obsessive menu.">
+  <meta name="twitter:description" content="Explore our menu categories.">
   <meta name="color-scheme" content="light dark">
   <link rel="stylesheet" href="/assets/styles.css">
   <link rel="icon" type="image/png" href="/assets/uploads/b_boy_logo100x100.png">
@@ -51,13 +45,14 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" role="banner">
     <div class="topbar wrap">
-      <a href="/" class="brand">Big Boy Bread</a>
+      <a href="/menu/" class="brand">Bread Menu</a>
       <nav class="site-nav" aria-label="Primary">
         <button id="menuToggle" class="hamburger" aria-expanded="false" aria-controls="siteMenu" aria-haspopup="true" aria-label="Open menu">
           <span class="hamburger-box"><span class="hamburger-inner"></span></span>
         </button>
         <div id="siteMenu" class="menu-dropdown" hidden role="menu" aria-label="Primary navigation">
           <a href="/" role="menuitem">Home</a>
+          <a href="/menu/" role="menuitem">Bread Menu</a>
           <a href="/about/" role="menuitem">About</a>
           <a href="/where-to-find-us/" role="menuitem">Where To Find Us</a>
           <a href="/catering/" role="menuitem">Catering</a>
@@ -69,34 +64,78 @@
   </header>
   <main id="main" class="section">
     
-      <div class="wrap"><p class="lede">Everything here is editable. Add, remove, and reorder without touching code.</p>
-<div class="cards">
-  <article class="card">
-    <header><h3>Classic</h3></header>
-    <p>Plain / Sesame / Everything. Schmear of choice.</p>
-    <p><em>vegetarian</em></p>
-    <p class="price">$</p>
-  </article>
-  <article class="card">
-    <header><h3>Big Boy Special</h3></header>
-    <p>Everything bagel, scallion schmear, lox, red onion, capers.</p>
-    <p><em>signature</em></p>
-    <p class="price">$$</p>
-  </article>
-  <article class="card">
-    <header><h3>Egg &amp; Cheese</h3></header>
-    <p>Soft scramble, cheddar, optional bacon. Hot sauce on the counter.</p>
-    <p><em>breakfast</em></p>
-    <p class="price">$</p>
-  </article>
-  <article class="card">
-    <header><h3>Sweet Heat</h3></header>
-    <p>Cream cheese, hot honey, chili crunch.</p>
-    <p><em>spicy, sweet</em></p>
-    <p class="price">$</p>
-  </article>
+      <div class="wrap">
+<h1>Menu</h1>
+
+<div class="menu-categories">
+  
+    <div class="category-card">
+      <h2><a href="/menu/bagels/">Bagels</a></h2>
+      <p>9 items</p>
+    </div>
+  
+    <div class="category-card">
+      <h2><a href="/menu/breads/">Breads</a></h2>
+      <p>4 items</p>
+    </div>
+  
+    <div class="category-card">
+      <h2><a href="/menu/sweets/">Sweets</a></h2>
+      <p>1 items</p>
+    </div>
+  
 </div>
-<p class="note">Prices are placeholders. Replace with real numbers. Use tags like <code>vegan</code>, <code>spicy</code>, or <code>special</code> for quick filtering later.</p>
+
+<style>
+  h1 {
+    text-align: center;
+  }
+
+  .menu-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 2rem;
+  }
+  
+  .category-card {
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 8px;
+    background: #fafafa;
+    text-align: center;
+    transition: transform 0.2s;
+    flex: 1 1 250px;
+    max-width: 400px;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .category-card h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+  }
+  
+  .category-card a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .category-card a:hover {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  /* Center the fallback message if present */
+  .menu-categories > p {
+    text-align: center;
+    width: 100%;
+  }
+</style>
 </div>
     
   </main>

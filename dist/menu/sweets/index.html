@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  
+  
+
+  <title>{{ category }} — Big Boy Bread</title>
+  <meta name="description" content="Big Boy Bread — a tasty, vibrant bread joint with Portland soul.">
+  <link rel="canonical" href="https://www.bigboybread.com">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Big Boy Bread">
+  <meta property="og:title" content="{{ category }}">
+  <meta property="og:description" content="Big Boy Bread — a tasty, vibrant bread joint with Portland soul.">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ category }}">
+  <meta name="twitter:description" content="Big Boy Bread — a tasty, vibrant bread joint with Portland soul.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="icon" type="image/png" href="/assets/uploads/b_boy_logo100x100.png">
+  
+  <script type="application/ld+json">
+  {
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;LocalBusiness&quot;,
+  &quot;name&quot;: &quot;Big Boy Bread&quot;,
+  &quot;url&quot;: &quot;https://www.bigboybread.com&quot;,
+  &quot;telephone&quot;: &quot;&quot;,
+  &quot;image&quot;: &quot;&quot;,
+  &quot;address&quot;: {
+    &quot;@type&quot;: &quot;PostalAddress&quot;,
+    &quot;streetAddress&quot;: &quot;&quot;,
+    &quot;addressLocality&quot;: &quot;Portland&quot;,
+    &quot;addressRegion&quot;: &quot;ME&quot;,
+    &quot;postalCode&quot;: &quot;&quot;
+  }
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <div class="topbar wrap">
+      <a href="/menu/" class="brand">Bread Menu</a>
+      <nav class="site-nav" aria-label="Primary">
+        <button id="menuToggle" class="hamburger" aria-expanded="false" aria-controls="siteMenu" aria-haspopup="true" aria-label="Open menu">
+          <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+        </button>
+        <div id="siteMenu" class="menu-dropdown" hidden role="menu" aria-label="Primary navigation">
+          <a href="/" role="menuitem">Home</a>
+          <a href="/menu/" role="menuitem">Bread Menu</a>
+          <a href="/about/" role="menuitem">About</a>
+          <a href="/where-to-find-us/" role="menuitem">Where To Find Us</a>
+          <a href="/catering/" role="menuitem">Catering</a>
+          <a href="/press/" role="menuitem">Press</a>
+        </div>
+      </nav>
+    </div>
+    
+  </header>
+  <main id="main" class="section">
+    
+      <div class="wrap">
+<div class="menu-container">
+  <div class="menu-sidebar">
+    <h2>Sweets</h2>
+    <ul class="file-list">
+      
+      <li>
+        <a href="#" class="menu-link" data-images='[
+          
+            "/assets/uploads/menu/sweets/sticky_buns/sticky_bun.jpeg",
+          
+            "/assets/uploads/menu/sweets/sticky_buns/sticky_bun2.jpeg",
+          
+            "/assets/uploads/menu/sweets/sticky_buns/sticky_bun3.jpeg"
+          
+        ]'>
+          Sticky Buns
+        </a>
+      </li>
+      
+    </ul>
+    <div style="margin-top: 2rem;">
+      <a href="/menu/">&larr; Back to Menu</a>
+    </div>
+  </div>
+
+  <div class="menu-preview">
+    <iframe name="preview-frame" id="preview-frame" src="" title="File Preview"></iframe>
+    <div id="image-container" class="image-container" style="display:none;">
+      <button id="prev-btn" class="nav-btn prev">&lt;</button>
+      <img id="current-image" src="" alt="Menu item preview">
+      <button id="next-btn" class="nav-btn next">&gt;</button>
+      <div id="image-counter" class="image-counter"></div>
+    </div>
+    <div id="placeholder-message" class="placeholder-message">
+      <p>Select an item to view</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const links = document.querySelectorAll('.menu-link');
+  const iframe = document.getElementById('preview-frame');
+  const imageContainer = document.getElementById('image-container');
+  const currentImage = document.getElementById('current-image');
+  const placeholder = document.getElementById('placeholder-message');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const imageCounter = document.getElementById('image-counter');
+
+  let currentImages = [];
+  let currentIndex = 0;
+
+  function showImage(index) {
+    if (currentImages.length === 0) return;
+    currentImage.src = currentImages[index];
+    imageCounter.textContent = `${index + 1} / ${currentImages.length}`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    showImage(currentIndex);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    showImage(currentIndex);
+  });
+
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      const imagesData = JSON.parse(link.getAttribute('data-images'));
+      
+      placeholder.style.display = 'none';
+
+      if (imagesData.length > 0) {
+        const firstIsImage = imagesData[0].match(/\.(jpeg|jpg|gif|png|webp|svg)$/i);
+        
+        if (firstIsImage) {
+          iframe.style.display = 'none';
+          imageContainer.style.display = 'flex';
+          
+          currentImages = imagesData;
+          currentIndex = 0;
+          showImage(0);
+
+          if (currentImages.length > 1) {
+            prevBtn.style.display = 'block';
+            nextBtn.style.display = 'block';
+            imageCounter.style.display = 'block';
+          } else {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            imageCounter.style.display = 'none';
+          }
+
+        } else {
+          // Fallback for PDFs
+          imageContainer.style.display = 'none';
+          iframe.style.display = 'block';
+          iframe.src = imagesData[0];
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  .menu-container {
+    display: flex;
+    gap: 20px;
+    height: 80vh;
+  }
+
+  .menu-sidebar {
+    flex: 1;
+    min-width: 250px;
+    overflow-y: auto;
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
+  }
+
+  .menu-preview {
+    flex: 3;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  #current-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 10;
+  }
+
+  .nav-btn:hover {
+    background: rgba(0,0,0,0.8);
+  }
+
+  .prev { left: 10px; }
+  .next { right: 10px; }
+
+  .image-counter {
+    position: absolute;
+    bottom: 10px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+  }
+
+  #preview-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: none; 
+  }
+
+  .placeholder-message {
+    color: #666;
+    font-size: 1.2rem;
+  }
+
+  .menu-link {
+    display: block;
+    padding: 8px 0;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #eee;
+  }
+
+  .menu-link:hover {
+    color: #000;
+    font-weight: bold;
+    background-color: #f0f0f0;
+  }
+
+  @media (max-width: 768px) {
+    .menu-container {
+      flex-direction: column;
+      height: auto;
+    }
+
+    .menu-sidebar {
+      flex: none;
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 20px;
+      padding-right: 0;
+      max-height: 30vh;
+    }
+
+    .menu-preview {
+      flex: none;
+      width: 100%;
+      height: 50vh;
+    }
+  }
+</style>
+</div>
+    
+  </main>
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrap">
+      <p>© <span id="year"></span> Big Boy BREAD. All rights reserved.</p>
+      <p class="footnote">Collage-forward vibe; no lyrics, logos, or proprietary artwork included.</p>
+    </div>
+  </footer>
+  <script src="/assets/script.js" defer></script>
+</body>
+</html>
