@@ -388,22 +388,69 @@
     .menu-container {
       flex-direction: column;
       height: auto;
+      gap: 10px;
     }
 
     .menu-sidebar {
       flex: none;
-      width: 100%;
+      width: calc(100% - 2rem);
       border-right: none;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 20px;
-      padding-right: 0;
-      max-height: 30vh;
+      padding: 1rem;
+      max-height: none;
+      margin: 1rem auto;
+      transform: none; /* remove desktop tilt for cleaner mobile layout */
+    }
+
+    .menu-sidebar h2 {
+      margin: -1rem -1rem 1rem;
+      padding: 0.75rem 1rem;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    .file-list {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding-bottom: 10px;
+      -webkit-overflow-scrolling: touch;
+      margin-bottom: 0.5rem;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .file-list li {
+      flex: 0 0 auto;
+    }
+
+    .menu-link {
+      background: var(--mustard);
+      border: 2px solid #000;
+      border-radius: 4px;
+      padding: 8px 15px;
+      white-space: nowrap;
+      box-shadow: 3px 3px 0 #000;
+    }
+
+    .menu-link:hover {
+      padding-left: 15px; /* reset desktop hover */
+      transform: translateY(-2px);
     }
 
     .menu-preview {
       flex: none;
-      width: 100%;
-      height: 50vh;
+      width: calc(100% - 2rem);
+      height: 60vh;
+      margin: 0 auto 1rem;
+    }
+
+    .nav-btn {
+      padding: 8px 12px;
+      font-size: 20px;
+    }
+
+    .placeholder-message {
+      font-size: 1.2rem;
     }
   }
 </style>

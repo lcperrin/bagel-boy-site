@@ -135,6 +135,25 @@
     text-align: center;
     width: 100%;
   }
+
+  @media (max-width: 768px) {
+    .menu-categories {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .category-card {
+      width: calc(100% - 2rem);
+      max-width: none;
+      transform: rotate(1deg);
+      margin: 0.5rem 0;
+    }
+
+    .category-card:nth-child(even) {
+      transform: rotate(-1deg);
+    }
+  }
 </style>
 </div>
     
