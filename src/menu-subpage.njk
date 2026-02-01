@@ -5,7 +5,8 @@ pagination:
   alias: category
 permalink: "/menu/{{ category | slug }}/index.html"
 layout: layouts/base.njk
-title: "{{ category }}"
+eleventyComputed:
+  title: "{{ category | title }}"
 ---
 
 <div class="menu-container">
