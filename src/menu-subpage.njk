@@ -111,6 +111,13 @@ eleventyComputed:
       }
     });
   });
+
+  // Auto-load the first item on page load
+  window.addEventListener('load', () => {
+    if (links.length > 0) {
+      links[0].click();
+    }
+  });
 </script>
 
 <style>
