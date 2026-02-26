@@ -80,18 +80,6 @@
               <p class="tagline">{{ tagline }}</p>
             {% endif %}
           </div>
-          <div class="hero-infographic">
-            {# Render the page image (from frontmatter `image`) as the infographic above the bar to the right #}
-            {% if page.image or image %}
-              <div class="hero-image">
-                <a href="/where-to-find-us/">
-                  <img src="{{ (page.image or image) }}" alt="{{ page.title or site.name }}" />
-                </a>
-              </div>
-            {% else %}
-              <div class="infographic-placeholder" aria-hidden="true">Infographic</div>
-            {% endif %}
-          </div>
         </div>
       </div>
     {% elif hero %}
