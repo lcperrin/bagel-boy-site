@@ -65,6 +65,10 @@
   <main id="main" class="section">
     
       <div class="wrap">
+<div class="menu-header">
+  <p>Send questions and orders to <a href="mailto:orders@bigboybread.com">orders@bigboybread.com</a></p>
+</div>
+
 <div class="menu-container">
   <div class="menu-sidebar">
     <h2>Bagels</h2>
@@ -259,6 +263,34 @@
 </script>
 
 <style>
+  .menu-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--mustard);
+    border: 3px solid #000;
+    border-radius: 6px;
+    box-shadow: 0 4px 0 #000;
+    transform: rotate(0.5deg);
+  }
+
+  .menu-header p {
+    margin: 0;
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+  }
+
+  .menu-header a {
+    color: #000;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+  }
+
+  .menu-header a:hover {
+    color: var(--pink);
+  }
+
   .menu-container {
     display: flex;
     gap: 20px;
