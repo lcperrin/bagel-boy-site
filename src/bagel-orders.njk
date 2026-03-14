@@ -1,0 +1,109 @@
+---
+layout: layouts/base.njk
+title: Bagel Orders
+seo_title: Bagel Order Calculator
+description: Internal bagel order calculator for Big Boy Bread staff.
+---
+
+<link rel="stylesheet" href="/assets/bagel-orders.css">
+
+<!-- ═══════════ PASSWORD GATE ═══════════ -->
+<div id="passwordGate" class="pw-overlay">
+  <div class="pw-card">
+    <h2 class="pw-title">🔒 Staff Only</h2>
+    <p class="pw-hint">Enter the password to access the order form.</p>
+    <form id="pwForm" autocomplete="off">
+      <input id="pwInput" type="password" class="pw-input" placeholder="Password" autofocus required>
+      <button type="submit" class="btn btn-primary pw-btn">Unlock</button>
+      <p id="pwError" class="pw-error" hidden>Wrong password — try again.</p>
+    </form>
+  </div>
+</div>
+
+<!-- ═══════════ MAIN APP (hidden until authenticated) ═══════════ -->
+<div id="app" class="bo-app" hidden>
+
+  <h1 class="bo-page-title">🥯 Bagel Order Calculator</h1>
+
+  <!-- ── Order Form ── -->
+  <section class="bo-form-section">
+    <form id="orderForm" class="bo-form" autocomplete="off">
+      <div class="bo-field">
+        <label for="customerName">Customer Name</label>
+        <input id="customerName" type="text" placeholder="e.g. Jane Doe" required>
+      </div>
+
+      <div class="bo-field">
+        <label for="bagelCount">Number of Bagels</label>
+        <select id="bagelCount" required>
+          <option value="" disabled selected>Choose…</option>
+        </select>
+      </div>
+
+      <div class="bo-field">
+        <label for="flavorSelect">Flavor</label>
+        <select id="flavorSelect" required>
+          <option value="" disabled selected>Choose…</option>
+        </select>
+      </div>
+
+      <div class="bo-actions">
+        <button type="button" id="clearTotalsBtn" class="btn btn-clear">Clear Totals</button>
+        <div class="bo-add-flavor-wrapper">
+          <button type="button" id="addFlavorBtn" class="btn btn-flavor">+ Add Flavor</button>
+          <div id="addFlavorPop" class="bo-flavor-pop" hidden>
+            <input type="text" id="newFlavorInput" placeholder="New flavor name" class="bo-flavor-input">
+            <button type="button" id="confirmFlavorBtn" class="btn btn-submit btn-sm">Add</button>
+            <button type="button" id="cancelFlavorBtn" class="btn btn-clear btn-sm">×</button>
+          </div>
+        </div>
+        <button type="submit" id="addToOrderBtn" class="btn btn-add">Add to Order</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ── Current Order Cart ── -->
+  <section class="bo-cart-section" id="cartSection" hidden>
+    <h2>Current Order <span id="cartCustomerDisplay"></span></h2>
+    <div id="cartItems" class="bo-cart-list">
+      <!-- items injected here -->
+    </div>
+    <div class="bo-cart-actions">
+      <button type="button" id="cancelCartBtn" class="btn btn-clear">Cancel Order</button>
+      <button type="button" id="completeOrderBtn" class="btn btn-submit">Complete Order</button>
+    </div>
+  </section>
+
+  <!-- ── Dashboard ── -->
+  <section class="bo-dashboard">
+
+    <div class="bo-panel bo-totals-panel">
+      <h2>Bagels by Flavor</h2>
+      <div id="totalsGrid" class="bo-totals-grid">
+        <p class="bo-empty">No orders yet.</p>
+      </div>
+    </div>
+
+    <div class="bo-panel bo-info-box">
+      <h2>Order Count</h2>
+      <p class="bo-big-number" id="orderCount">0</p>
+      <span class="bo-label">total orders submitted</span>
+    </div>
+
+    <div class="bo-panel bo-export-panel">
+      <button id="exportBtn" class="btn btn-export">📤 Export Orders to CSV</button>
+    </div>
+
+  </section>
+
+  <!-- ── Recent Orders ── -->
+  <section class="bo-recent">
+    <h2>Recent Orders</h2>
+    <div id="recentOrders" class="bo-recent-list">
+      <p class="bo-empty">No orders yet.</p>
+    </div>
+  </section>
+
+</div>
+
+<script src="/assets/bagel-orders.js" defer></script>
