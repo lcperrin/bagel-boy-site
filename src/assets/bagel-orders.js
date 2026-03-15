@@ -39,6 +39,9 @@
   const confirmFBtn   = $('confirmFlavorBtn');
   const cancelFBtn    = $('cancelFlavorBtn');
   const clearTotalsBtn = $('clearTotalsBtn');
+  const clearTotalsPop = $('clearTotalsPop');
+  const confirmClearBtn = $('confirmClearBtn');
+  const cancelClearBtn = $('cancelClearBtn');
   
   const cartSection       = $('cartSection');
   const cartCustomerDisp  = $('cartCustomerDisplay');
@@ -172,8 +175,13 @@
     const count = parseInt(bagelCount.value, 10);
     const flavor = flavorSelect.value;
     
-    // Add to cart
-    cart.push({ count, flavor });
+    // Add to cart or update existing flavor count
+    const existingItem = cart.find(item => item.flavor === flavor);
+    if (existingItem) {
+      existingItem.count += count;
+    } else {
+      cart.push({ count, flavor });
+    }
     
     // Lock customer name when cart has items
     customerName.disabled = true;
@@ -272,11 +280,21 @@
       showToast('Nothing to clear.');
       return;
     }
-    if (!confirm('Clear ALL orders and totals? This cannot be undone.')) return;
+    clearTotalsPop.hidden = false;
+  });
+
+  function closeClearPop() {
+    clearTotalsPop.hidden = true;
+  }
+
+  cancelClearBtn.addEventListener('click', closeClearPop);
+
+  confirmClearBtn.addEventListener('click', () => {
     orders = [];
     saveOrders();
     renderAll();
     showToast('All orders cleared.');
+    closeClearPop();
   });
 
   // ───────────────────────────────────────────

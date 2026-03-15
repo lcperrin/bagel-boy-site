@@ -108,7 +108,6 @@
       </div>
 
       <div class="bo-actions">
-        <button type="button" id="clearTotalsBtn" class="btn btn-clear">Clear Totals</button>
         <div class="bo-add-flavor-wrapper">
           <button type="button" id="addFlavorBtn" class="btn btn-flavor">+ Add Flavor</button>
           <div id="addFlavorPop" class="bo-flavor-pop" hidden>
@@ -151,6 +150,14 @@
     </div>
 
     <div class="bo-panel bo-export-panel">
+      <div class="bo-add-flavor-wrapper" style="margin-right: .75rem;">
+        <button type="button" id="clearTotalsBtn" class="btn btn-clear">🗑️ Clear Totals</button>
+        <div id="clearTotalsPop" class="bo-flavor-pop" hidden>
+          <span style="font-size: .9em; font-weight: bold; margin-right: 8px; padding-top: 4px;">Clear all?</span>
+          <button type="button" id="confirmClearBtn" class="btn btn-submit btn-sm">Yes</button>
+          <button type="button" id="cancelClearBtn" class="btn btn-clear btn-sm">No</button>
+        </div>
+      </div>
       <button id="exportBtn" class="btn btn-export">📤 Export Orders to CSV</button>
     </div>
 
