@@ -7,8 +7,9 @@
   // ── Config ──
   const PASSWORD_HASH = '9e6938495527459289c414c063e9b47322a81377c57f3fab9abc9b1b9a2d6355'; // F@tFuckingTitti3s
   const DEFAULT_FLAVORS = [
-    'Plain', 'Everything', 'Sesame', 'Poppy',
-    'Cinnamon Raisin', 'Onion', 'Garlic'
+    'Plain', 'Everything', 'Sesame', 'Poppy', 'Onion', 'Garlic', 
+    'Cinnamon Raisin Streusel', 'Cheddar', 'Cheddar Everything', 
+    'Hot Honey Chili', 'Parmesan Pesto', 'Rosemary Sea Salt', 'Salt'
   ];
   const MAX_BAGELS = 48;
 
